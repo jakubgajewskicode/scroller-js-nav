@@ -34,10 +34,8 @@ class Swiper {
     const diffX = this.initalX - currentX;
     const diffY = this.initalY - currentY;
 
-    console.log({
-      diffX
-    });
-    console.log(diffY);
+
+
 
     // Horizontal 
     if (Math.abs(diffX) > Math.abs(diffY)) {
