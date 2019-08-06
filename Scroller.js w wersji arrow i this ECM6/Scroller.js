@@ -34,18 +34,18 @@ class Scroller {
     return isVisiable;
   }
   // 1.
-  listenScroll(event) {
+  listenScroll = (event) => {
     if (this.isThrottled) return;
     this.isThrottled = true;
 
     setTimeout(() => {
       this.isThrottled = false;
     }, 1000);
-    const direction = event.deltaY > 0 ? 1 : -1;
+    const direction = event.wheelDelta < 0 ? 1 : -1;
 
     this.scroll(direction);
   }
-  scroll(direction) {
+  scroll = (direction) => {
 
     if (direction === 1) {
       const isLastSection = this.currentSectionIndex === this.sections.length - 1;
@@ -69,7 +69,7 @@ class Scroller {
 
     })
   }
-  drawNavigation() {
+  drawNavigation = () => {
     this.naviagationContainer = document.createElement('aside');
     this.naviagationContainer.setAttribute('class', 'scroller__navigation')
     const list = document.createElement('ul');
@@ -96,7 +96,7 @@ class Scroller {
 
   }
 
-  selectActiveNavItem() {
+  selectActiveNavItem = () => {
     if (this.naviagationContainer) {
       const navigationItems = this.naviagationContainer.querySelectorAll('li');
 
